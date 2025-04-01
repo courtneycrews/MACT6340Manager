@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Courtney Crews">
+  <meta name="description" content="NFT preparation management tool.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+
+  <title>NFT project manager - c.m. crews</title>
+</head>
+
+<body>
+
+<main class="container py-5">
+    <h1 class="text-center mb-5">NFT Project Management Tool</h1>
+
+    <div class="row justify-content-center g-5">
+        <div id="project-view" class="col-5 d-flex flex-column align-items-center">
+            <div class="w-100 mb-4 text-start">
+                <p class="mb-0 body-strong">Current Project</p>
+              </div>
+        <div class="justify-content-center row"><iframe title="NFT preview" class="m-0 p-0" id="preview-frame"
+            src="/iframe?hash=7777777777777777"></iframe>
+        </div>
+        <div class="row text-center justify-content-center m-3">
+          <div>hash:</div>
+          <div id="hash-display">7777777777777777</div>
+        </div>
+        <div class="d-flex justify-content-center gap-3 m-3">
+            <button id="keep-hash" class="button-light px-4">refresh</button>
+            <button id="new-hash" class="button-light px-4">new hash</button>
+          </div>
+        <div class="row justify-content-center text-center">
+            <p class="mb-3">
+              To ensure hash-based deterministic randomness of your script, the buttons should produce the following behavior: 'refresh' should keep same properties, while 'new hash' should introduce new properties.
+            </p>
+            <p>
+              This animation comes from the main.js file in the '1-project-bundle' directory. If the animation is not behaving correctly, you will need to change your original sketch, rebundle, and use the resulting file. Be sure it is named 'main.js'. You will then need to and restart this server.
+            </p>
+          </div>
+        <div class="build-section mt-5 p-4 rounded shadow-sm text-center w-100">
+                <div>
+                    <button id="build-sequence-button" class="m-3 col-5 button-light">build and deploy</button>
+                    <div class="col-3" id="build-sequence-button-response"></div>
+                </div>
+                <div class="row justify-content-center text-center">
+                    <div>
+                        <p>Carefully review everything on this page and ONLY PRESS THIS WHEN YOU ARE 100% SATISFIED with all of the info and you are ready to deploy. When ready, click 'build and deploy' and observe the back-end console and directory structure for progress. Once button is clicked, it will disappear. The process can be lengthy. Do not terminate the program. It will close when the process is complete.</p>
+                        <p>The actions taken by this button include:</p>
+                        <div class="text-start">
+                            <ul>
+                                <li>generating and saving the token images, animation files, and metadata</li>
+                                <li>pinning those items to IPFS</li>
+                                <li>building the script for you to manually enter your project to your MySQL database</li>
+                                <li>deploying the contract</li>
+                                <li>see '5-final-project-data' directory for final report and scripts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="project-info" class="col-6 d-flex flex-column align-items-start ms-4">
+
+            <h2 class="body-strong mb-3">Project Information</h2>
+            <p class="mb-3">Information for website:</p>
+          
+            <div class="mb-2 ms-3">
+              <div>Project Name:</div>
+              <div id="project-name-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Project Description:</div>
+              <div id="project-desc-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Project Website:</div>
+              <div id="project-website-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Price:</div>
+              <div id="project-price-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Quantity:</div>
+              <div id="project-quantity-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Opening date:</div>
+              <div id="project-date-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-4 ms-3">
+              <div>Royalties:</div>
+              <div id="project-roylaties-holder" class="fst-italic">none</div>
+            </div>
+          
+            <h3 class="body-strong mb-3">Information for contract and metadata:</h3>
+          
+            <div class="mb-2 ms-3">
+              <div>Artist Payout Wallet Address:</div>
+              <div id="artist-wallet-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Royalty Payout Wallet Address:</div>
+              <div id="royalty-wallet-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Title for Token Viewport:</div>
+              <div id="viewport-name-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Collection Name:</div>
+              <div id="collection-name-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Collection Description:</div>
+              <div id="collection-desc-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mb-2 ms-3">
+              <div>Token Description:</div>
+              <div id="token-desc-holder" class="fst-italic">none</div>
+            </div>
+          
+            <div class="mt-4">
+              <p>This info comes from the <code>projectMeta.json</code> file in the <code>1-project-bundle</code> directory. If the above info is incorrect, please change the file contents and restart this server.</p>
+            </div>
+          </div>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
