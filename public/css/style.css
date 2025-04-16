@@ -50,6 +50,13 @@ h1, h2, h3, .section-title {
     margin: 10px;
 }
 
+#preview-frame {
+    width: 100%;
+    max-width: 400px; /* or whatever size works for your layout */
+    aspect-ratio: 1 / 1;
+    border: none;
+  }
+
 .build-section {
     background-color: white;
     border-radius: 12px;
